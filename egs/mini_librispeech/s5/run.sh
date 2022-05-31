@@ -138,7 +138,7 @@ if [ $stage -le 8 ]; then
       data/$test exp/tri3b/decode_{tgsmall,tglarge}_$test
   done
 fi
-
+echo Done; exit
 # Train a chain model
 if [ $stage -le 9 ]; then
   local/chain2/run_tdnn.sh
