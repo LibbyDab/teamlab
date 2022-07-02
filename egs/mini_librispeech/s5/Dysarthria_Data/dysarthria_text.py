@@ -3,10 +3,11 @@ import sys
 import os
 
 def main():
+    filepath = '/mount/arbeitsdaten61/studenten3/team-lab-phonetics/2022/student_directories/Catherine_Dabrowski/kaldi/egs/mini_librispeech/s5/Dysarthria_Data/'
     for speaker in sorted(os.listdir('F_Data')):
-        os.chdir('/mount/arbeitsdaten61/studenten3/team-lab-phonetics/2022/student_directories/Catherine_Dabrowski/kaldi/egs/mini_librispeech/s5/Dysarthria_Data/F_Data')
+        os.chdir(os.path.join(filepath, 'F_Data'))
         for session in sorted(os.listdir(speaker)):
-            os.chdir(os.path.join('/mount/arbeitsdaten61/studenten3/team-lab-phonetics/2022/student_directories/Catherine_Dabrowski/kaldi/egs/mini_librispeech/s5/Dysarthria_Data/F_Data', speaker, session))
+            os.chdir(os.path.join(filepath, 'F_Data', speaker, session))
             for txt_file in sorted(os.listdir('Prompts')):
                 wav_file = str(txt_file).replace('.txt', '.wav')
                 if os.path.isfile(os.path.join('Prompts', txt_file)) and os.path.isfile(os.path.join('Audio', wav_file)):
